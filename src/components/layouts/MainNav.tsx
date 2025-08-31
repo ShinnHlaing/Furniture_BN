@@ -16,7 +16,7 @@ interface MainNavProps {
   items?: MainNavItem[];
 }
 //
-const MainNav = ({ items }: MainNavProps) => {
+export default function MainNav({ items }: MainNavProps) {
   return (
     <div className="hidden gap-6 lg:flex">
       <Link to="/" className="flex items-center space-x-2">
@@ -74,7 +74,7 @@ const MainNav = ({ items }: MainNavProps) => {
       </NavigationMenu>
     </div>
   );
-};
+}
 // custom list item component made by shadcn
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
@@ -102,4 +102,3 @@ const ListItem = React.forwardRef<
   );
 });
 ListItem.displayName = "ListItem";
-export default MainNav;

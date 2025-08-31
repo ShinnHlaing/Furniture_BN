@@ -1,13 +1,14 @@
-import MainNav from "@/components/layouts/MainNav";
+import MainNav from "./MainNav";
+import MobileNav from "./MobileNav";
 import { siteConfig } from "@/config/site";
-const Header = () => {
+
+export default function Header() {
   return (
     <header className="w-full border-b">
-      <div className="container flex h-16 items-center justify-center">
+      <div className="container mx-auto flex h-16 items-center justify-center">
         <MainNav items={siteConfig.mainNav} />
+        <MobileNav items={siteConfig.mainNav} />
       </div>
     </header>
   );
-};
-
-export default Header;
+}
