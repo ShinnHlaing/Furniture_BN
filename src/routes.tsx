@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "@/pages/RootLayout";
 import Home from "@/pages/Home";
-import Contact from "@/pages/Contact";
 import Erro from "@/pages/Erro";
+import About from "@/pages/About";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
     ErrorBoundary: Erro,
     children: [
       { index: true, Component: Home },
-      { path: "contact", Component: Contact },
+      { path: "about", Component: About }, //relative path
     ],
   },
 ]);

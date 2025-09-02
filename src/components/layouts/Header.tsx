@@ -2,7 +2,7 @@ import MainNav from "./MainNav";
 import MobileNav from "./MobileNav";
 import { siteConfig } from "@/config/site";
 import { ModeToggle } from "@/components/mode-toggle";
-export default function Header() {
+function Header() {
   return (
     <header className="w-full border-b">
       <div className="container mx-auto flex h-16 items-center">
@@ -15,3 +15,4 @@ export default function Header() {
     </header>
   );
 }
+export default Header;
