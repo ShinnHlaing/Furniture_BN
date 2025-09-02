@@ -1,5 +1,32 @@
-const Erro = () => {
-  return <div>Erro</div>;
-};
+import { Link } from "react-router";
+import Header from "@/components/layouts/Header";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+function Erro() {
+  return (
+    <div className="flex min-h-screen flex-col">
+      <Header />
+      <div className="flex flex-1 items-center justify-center">
+        <Card className="w-full max-w-sm">
+          <CardHeader className="flex flex-col items-center justify-center space-y-3">
+            <CardTitle>Oppos!</CardTitle>
+            <CardDescription>Not Found Page!</CardDescription>
+          </CardHeader>
+          <CardFooter className="flex-col">
+            <Button variant="outline" className="w-full" asChild>
+              <Link to="/">Back to Home</Link>
+            </Button>
+          </CardFooter>
+        </Card>
+      </div>
+    </div>
+  );
+}
 
 export default Erro;

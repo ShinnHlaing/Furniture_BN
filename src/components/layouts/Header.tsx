@@ -1,7 +1,7 @@
 import MainNav from "./MainNav";
 import MobileNav from "./MobileNav";
 import { siteConfig } from "@/config/site";
-import { ModeToggle } from "@/components/mode-toggle";
+import { ModeToggle } from "@/components/mode-toggle"; //shadcn vite dark mode
 function Header() {
   return (
     <header className="w-full border-b">
