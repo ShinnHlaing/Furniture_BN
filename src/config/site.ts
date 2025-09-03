@@ -105,17 +105,17 @@ export const siteConfig = {
       items: [
         {
           title: "X",
-
+          href: "https://twitter.com/sample",
           external: true,
         },
         {
           title: "GitHub",
-
+          href: "https://github.com/sample/furniture",
           external: true,
         },
         {
           title: "Discord",
-
+          href: "https://discord.com/users/sample",
           external: true,
         },
       ],
