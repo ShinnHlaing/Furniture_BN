@@ -1,18 +1,15 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import type { MainNavItem } from "@/types";
 import { Icons } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
+
 import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import {
@@ -25,6 +22,20 @@ interface MainNavProps {
   items?: MainNavItem[];
 }
 export default function MobileNav({ items }: MainNavProps) {
+  // to detect screen size when screen size is large then hide mobile nav
+  const [isDesktop, setIsDesktop] = useState(false);
+  const query = "(min-width: 1024px)";
+  useEffect(() => {
+    function onChange(e: MediaQueryListEvent) {
+      setIsDesktop(e.matches);
+    }
+    const result = matchMedia(query);
+    result.addEventListener("change", onChange);
+    return () => result.removeEventListener("change", onChange);
+  }, [query]);
+  if (isDesktop) {
+    return null;
+  }
   return (
     <div className="lg:hidden">
       <Sheet>

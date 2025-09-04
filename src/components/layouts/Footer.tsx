@@ -5,8 +5,8 @@ import NewsLetterForm from "@/components/news-letter";
 function Footer() {
   return (
     <footer className="ml-4 w-full border-t lg:ml-0">
-      <div className="container mx-auto bg-green-600 pt-6 pb-8 lg:py-6">
-        <section className="flex flex-col justify-center gap-10 lg:flex-row lg:gap-20">
+      <div className="container mx-auto pt-6 pb-8 lg:py-6">
+        <section className="flex flex-col justify-center gap-10 lg:flex-row lg:justify-between lg:gap-20">
           {/* fist */}
           <section>
             <Link to="/" className="flex items-center space-x-2">
