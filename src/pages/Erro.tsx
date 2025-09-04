@@ -12,9 +12,9 @@ import {
 import { Icons } from "@/components/icons";
 function Erro() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col overflow-hidden">
       <Header />
-      <div className="flex flex-1 items-center justify-center">
+      <div className="my-32 flex flex-1 items-center justify-center">
         <Card className="w-full max-w-sm">
           <CardHeader className="flex flex-col items-center justify-center space-y-3">
             <div className="border-muted-foreground/70 rounded-full border border-dashed p-4">

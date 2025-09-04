@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site";
 import { ModeToggle } from "@/components/mode-toggle"; //shadcn vite dark mode
 function Header() {
   return (
-    <header className="w-full border-b">
+    <header className="bg-background fixed z-50 w-full border-b">
       <div className="container mx-auto flex h-16 items-center">
         <MainNav items={siteConfig.mainNav} />
         <MobileNav items={siteConfig.mainNav} />
