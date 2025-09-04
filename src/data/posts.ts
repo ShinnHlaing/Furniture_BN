@@ -1,1 +1,1 @@
-export const Pists = [];
+export const Posts = [];
