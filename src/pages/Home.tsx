@@ -1,6 +1,8 @@
 import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
 import Couch from "@/data/images/couch.png";
+import CarouselCard from "@/components/products/CarouselCard";
+import { products } from "@/data/products";
 const Home = () => {
   return (
     <div className="container mx-auto mt-16">
@@ -34,6 +36,7 @@ const Home = () => {
         {/* image content */}
         <img src={Couch} alt="" className="w-full lg:w-3/5" />
       </div>
+      <CarouselCard products={products} />
     </div>
   );
 };
