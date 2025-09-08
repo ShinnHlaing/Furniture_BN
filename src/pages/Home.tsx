@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import Couch from "@/data/images/couch.png";
 import CarouselCard from "@/components/products/CarouselCard";
 import { products } from "@/data/products";
+import BlogCard from "@/components/blogs/BlogCard";
+import { posts } from "@/data/posts";
+const samplePosts = posts.slice(0, 3);
 const Home = () => {
   const Title = ({
     title,
@@ -54,6 +57,7 @@ const Home = () => {
       </div>
       <CarouselCard products={products} />
       <Title title="Recent Blog" href="/blogs" sideText="View All Blogs" />
+      <BlogCard posts={samplePosts} />
     </div>
   );
 };
