@@ -5,7 +5,7 @@ import CarouselCard from "@/components/products/CarouselCard";
 import { products } from "@/data/products";
 import BlogCard from "@/components/blogs/BlogCard";
 import { posts } from "@/data/posts";
-const samplePosts = posts.slice(0, 3);
+const samplePosts = posts.slice(0, 3); //limit number of posts displayed on home page
 const Home = () => {
   const Title = ({
     title,

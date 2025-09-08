@@ -7,7 +7,7 @@ function BlogCard({ posts }: PostProps) {
   return (
     <div className="my-8 grid grid-cols-1 gap-8 px-4 md:grid-cols-2 md:px-0 lg:grid-cols-3">
       {posts.map((post) => (
-        <Link to={`/blog/${post.id}`} key={post.id}>
+        <Link to={`/blogs/${post.id}`} key={post.id}>
           <img
             src={post.image}
             alt={post.title}
