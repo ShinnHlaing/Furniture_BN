@@ -4,6 +4,22 @@ import Couch from "@/data/images/couch.png";
 import CarouselCard from "@/components/products/CarouselCard";
 import { products } from "@/data/products";
 const Home = () => {
+  const Title = ({
+    title,
+    href,
+    sideText,
+  }: {
+    title: string;
+    href: string;
+    sideText: string;
+  }) => (
+    <div className="mt-28 mb-10 flex flex-col items-center md:flex-row md:justify-between md:px-0">
+      <h2 className="mb-4 text-2xl font-bold md:mb-0">{title}</h2>
+      <Link to={href} className="text-muted-foreground font-semibold underline">
+        {sideText}
+      </Link>
+    </div>
+  );
   return (
     <div className="container mx-auto mt-16">
       <div className="flex flex-col justify-center gap-20 lg:flex-row lg:justify-between">
@@ -37,6 +53,7 @@ const Home = () => {
         <img src={Couch} alt="" className="w-full lg:w-3/5" />
       </div>
       <CarouselCard products={products} />
+      <Title title="Recent Blog" href="/blogs" sideText="View All Blogs" />
     </div>
   );
 };
