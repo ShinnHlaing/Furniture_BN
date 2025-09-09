@@ -24,7 +24,7 @@ const Home = () => {
     </div>
   );
   return (
-    <div className="container mx-auto mt-16">
+    <div className="container mx-auto">
       <div className="flex flex-col justify-center gap-20 lg:flex-row lg:justify-between">
         {/* text content */}
         <div className="my-8 text-center lg:mt-16 lg:mb-0 lg:w-2/5 lg:text-left">
