@@ -11,6 +11,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { formatPrice } from "@/lib/utils";
 interface ProductProps {
   products: Product;
 }
@@ -33,10 +34,10 @@ function ProductCard({ products }: ProductProps) {
             {products.name}
           </CardTitle>
           <CardDescription className="line-clamp-1">
-            {products.price}
+            {formatPrice(products.price)}
             {products.discount > 0 && (
               <span className="ml-2 font-extralight line-through">
-                ${products.discount}
+                {formatPrice(products.discount)}
               </span>
             )}
           </CardDescription>
