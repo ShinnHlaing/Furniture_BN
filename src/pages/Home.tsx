@@ -2,10 +2,12 @@ import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
 import Couch from "@/data/images/couch.png";
 import CarouselCard from "@/components/products/CarouselCard";
+import ProductCard from "@/components/products/ProductCard";
 import { products } from "@/data/products";
 import BlogCard from "@/components/blogs/BlogCard";
 import { posts } from "@/data/posts";
 const samplePosts = posts.slice(0, 3); //limit number of posts displayed on home page
+const sampleProducts = products.slice(0, 4);
 const Home = () => {
   const Title = ({
     title,
@@ -56,6 +58,17 @@ const Home = () => {
         <img src={Couch} alt="" className="w-full lg:w-3/5" />
       </div>
       <CarouselCard products={products} />
+      <Title
+        title="Featured Products"
+        href="/products"
+        sideText="View All Products"
+      />
+      <div className="grid grid-cols-1 gap-6 px-4 md:grid-cols-2 md:px-0 lg:grid-cols-4">
+        {sampleProducts.map((product) => (
+          <ProductCard products={product} key={product.id} />
+        ))}
+      </div>
+
       <Title title="Recent Blog" href="/blogs" sideText="View All Blogs" />
       <BlogCard posts={samplePosts} />
     </div>
