@@ -10,7 +10,7 @@ import {
 
 export function PaginationDemo() {
   return (
-    <Pagination>
+    <Pagination className="mb-8">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious href="#" />
