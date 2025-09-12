@@ -1,12 +1,24 @@
+import React from "react";
 import { useParams, Link } from "react-router";
 import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 import ProductCard from "@/components/products/ProductCard";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { Separator } from "@/components/ui/separator";
+//
 function ProductDetail() {
   const { productId } = useParams();
   const product = products.find((product) => product.id === productId);
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true }),
+  );
   return (
     <div className="container mx-auto px-4 md:px-0">
       <Button variant="outline" className="mt-8">
@@ -15,7 +27,24 @@ function ProductDetail() {
           All Products
         </Link>
       </Button>
-      <section className=""></section>
+      <section className="flex flex-col gap-8 md:flex-row md:gap-16">
+        <Carousel plugins={[plugin.current]} className="w-full md:w-1/2">
+          <CarouselContent>
+            {product?.images.map((image) => (
+              <CarouselItem key={image}>
+                <div className="p-1">
+                  <img
+                    src={image}
+                    alt={product.name}
+                    className="size-full rounded-md object-cover"
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </section>
+      <Separator className="my-4" />
       {/*  */}
       <section className="space-y-6 overflow-hidden">
         <h2 className="line-clamp-1 text-2xl font-bold">
