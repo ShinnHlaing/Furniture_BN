@@ -11,13 +11,14 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { formatPrice } from "@/lib/utils";
-interface ProductProps {
+import { formatPrice, cn } from "@/lib/utils";
+
+interface ProductProps extends React.HTMLAttributes<HTMLDivElement> {
   products: Product;
 }
-function ProductCard({ products }: ProductProps) {
+function ProductCard({ products, className }: ProductProps) {
   return (
-    <Card className="size-full overflow-hidden rounded-lg">
+    <Card className={cn("size-full overflow-hidden rounded-lg", className)}>
       <Link to={`/products/${products.id}`} aria-label={products.name}>
         <CardHeader className="border-b p-0">
           <AspectRatio ratio={1 / 1} className="bg-muted">
