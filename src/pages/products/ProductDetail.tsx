@@ -12,6 +12,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
+import { formatPrice } from "@/lib/utils";
 //
 function ProductDetail() {
   const { productId } = useParams();
@@ -27,7 +28,7 @@ function ProductDetail() {
           All Products
         </Link>
       </Button>
-      <section className="flex flex-col gap-8 md:flex-row md:gap-16">
+      <section className="my-6 flex flex-col gap-16 md:flex-row md:gap-16">
         <Carousel plugins={[plugin.current]} className="w-full md:w-1/2">
           <CarouselContent>
             {product?.images.map((image) => (
@@ -43,8 +44,21 @@ function ProductDetail() {
             ))}
           </CarouselContent>
         </Carousel>
+        <div className="flex w-full flex-col gap-4 md:w-1/2">
+          <h2 className="mb-2 line-clamp-1 text-2xl font-bold">
+            {product?.name}
+          </h2>
+          <p className="text-muted-foreground text-base">
+            {formatPrice(Number(product?.price))}
+          </p>
+          <Separator className="my-1.5" />
+          <p className="text-muted-foreground text-base">
+            {product?.inventory} in stock
+          </p>
+          <div className=""></div>
+        </div>
       </section>
-      <Separator className="my-4" />
+      <Separator className="my-4 md:hidden" />
       {/*  */}
       <section className="space-y-6 overflow-hidden">
         <h2 className="line-clamp-1 text-2xl font-bold">
