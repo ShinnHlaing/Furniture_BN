@@ -7,6 +7,7 @@ import ProductCard from "@/components/products/ProductCard";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Autoplay from "embla-carousel-autoplay";
 import Rating from "@/pages/products/Rating";
+import AddToFav from "@/components/products/AddToFav";
 import {
   Carousel,
   CarouselContent,
@@ -61,6 +62,10 @@ function ProductDetail() {
           </p>
           <div className="flex items-center justify-between">
             <Rating rating={Number(product?.rating)} />
+            <AddToFav
+              productId={String(product?.id)}
+              rating={Number(product?.rating)}
+            />
           </div>
         </div>
       </section>
