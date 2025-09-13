@@ -6,6 +6,7 @@ import { Icons } from "@/components/icons";
 import ProductCard from "@/components/products/ProductCard";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Autoplay from "embla-carousel-autoplay";
+import Rating from "@/pages/products/Rating";
 import {
   Carousel,
   CarouselContent,
@@ -45,17 +46,22 @@ function ProductDetail() {
           </CarouselContent>
         </Carousel>
         <div className="flex w-full flex-col gap-4 md:w-1/2">
-          <h2 className="mb-2 line-clamp-1 text-2xl font-bold">
-            {product?.name}
-          </h2>
-          <p className="text-muted-foreground text-base">
-            {formatPrice(Number(product?.price))}
-          </p>
+          <div className="space-y-0.5">
+            <h2 className="mb-2 line-clamp-1 text-2xl font-bold">
+              {product?.name}
+            </h2>
+            <p className="text-muted-foreground text-base">
+              {formatPrice(Number(product?.price))}
+            </p>
+          </div>
+
           <Separator className="my-1.5" />
           <p className="text-muted-foreground text-base">
             {product?.inventory} in stock
           </p>
-          <div className=""></div>
+          <div className="flex items-center justify-between">
+            <Rating rating={Number(product?.rating)} />
+          </div>
         </div>
       </section>
       <Separator className="my-4 md:hidden" />
