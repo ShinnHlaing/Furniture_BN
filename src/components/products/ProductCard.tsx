@@ -25,7 +25,7 @@ function ProductCard({ products, className }: ProductProps) {
             <img
               src={products.images[0]}
               alt={products.name}
-              className="size-full object-cover"
+              className="rounded-lg object-cover"
               loading="lazy"
             />
           </AspectRatio>

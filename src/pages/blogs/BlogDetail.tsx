@@ -57,6 +57,7 @@ function BlogDetail() {
               <Link
                 to={`/blogs/${post.id}`}
                 className="mb-6 flex items-start gap-2"
+                key={post.id}
               >
                 <img
                   src={post.image}
