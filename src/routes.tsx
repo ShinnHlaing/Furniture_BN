@@ -7,15 +7,20 @@ import About from "@/pages/About";
 // import BlogRootLayout from "@/pages/blogs/BlogRootLayout";
 // import Blog from "@/pages/blogs/Blog";
 // import BlogDetail from "@/pages/blogs/BlogDetail";
-/*** set lazy loading and wrap with suspense componet for blog related pages! ***/
+/*** set lazy loading and wrap with suspense componet for blog and product related pages! ***/
 const BlogRootLayout = lazy(() => import("@/pages/blogs/BlogRootLayout"));
 const Blog = lazy(() => import("@/pages/blogs/Blog"));
 const BlogDetail = lazy(() => import("@/pages/blogs/BlogDetail"));
 
-import ProductRootLayout from "@/pages/products/ProductRootLayout";
-import Product from "@/pages/products/Product";
-import ProductDetail from "@/pages/products/ProductDetail";
-
+// import ProductRootLayout from "@/pages/products/ProductRootLayout";
+// import Product from "@/pages/products/Product";
+// import ProductDetail from "@/pages/products/ProductDetail";
+const ProductRootLayout = lazy(
+  () => import("@/pages/products/ProductRootLayout"),
+);
+const Product = lazy(() => import("@/pages/products/Product"));
+const ProductDetail = lazy(() => import("@/pages/products/ProductDetail"));
+//create fallback component
 const SuspenseFallback = () => <div className="text-center">Loading...</div>;
 export const router = createBrowserRouter([
   {
@@ -53,10 +58,28 @@ export const router = createBrowserRouter([
       }, //relative path
       {
         path: "products",
-        Component: ProductRootLayout,
+        Component: () => (
+          <Suspense fallback={<SuspenseFallback />}>
+            <ProductRootLayout />
+          </Suspense>
+        ),
         children: [
-          { index: true, Component: Product },
-          { path: ":productId", Component: ProductDetail },
+          {
+            index: true,
+            Component: () => (
+              <Suspense fallback={<SuspenseFallback />}>
+                <Product />
+              </Suspense>
+            ),
+          },
+          {
+            path: ":productId",
+            Component: () => (
+              <Suspense fallback={<SuspenseFallback />}>
+                <ProductDetail />
+              </Suspense>
+            ),
+          },
         ],
       },
     ],
