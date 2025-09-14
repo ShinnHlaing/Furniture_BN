@@ -7,7 +7,7 @@ import About from "@/pages/About";
 // import BlogRootLayout from "@/pages/blogs/BlogRootLayout";
 // import Blog from "@/pages/blogs/Blog";
 // import BlogDetail from "@/pages/blogs/BlogDetail";
-/*** set lazy loading for blog related pages! ***/
+/*** set lazy loading and wrap with suspense componet for blog related pages! ***/
 const BlogRootLayout = lazy(() => import("@/pages/blogs/BlogRootLayout"));
 const Blog = lazy(() => import("@/pages/blogs/Blog"));
 const BlogDetail = lazy(() => import("@/pages/blogs/BlogDetail"));
