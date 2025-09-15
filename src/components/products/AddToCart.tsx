@@ -20,10 +20,10 @@ const quantitySchema = z.object({
 });
 
 interface ShowBuyNowProps {
-  showBuyNow: boolean;
+  canBuy: boolean;
 }
 
-export default function AddToCartForm({ showBuyNow }: ShowBuyNowProps) {
+export default function AddToCartForm({ canBuy }: ShowBuyNowProps) {
   const form = useForm<z.infer<typeof quantitySchema>>({
     resolver: zodResolver(quantitySchema),
     defaultValues: {
@@ -84,7 +84,15 @@ export default function AddToCartForm({ showBuyNow }: ShowBuyNowProps) {
           </Button>
         </div>
         <div className="flex items-center space-x-2.5">
-          <Button type="button" aria-label="Buy now" size="sm" className="">
+          <Button
+            type="button"
+            aria-label="Buy now"
+            size="sm"
+            className={cn(
+              "w-full bg-teal-500 font-bold",
+              !canBuy && "bg-slate-400",
+            )}
+          >
             Buy Now
           </Button>
           <Button
@@ -92,7 +100,10 @@ export default function AddToCartForm({ showBuyNow }: ShowBuyNowProps) {
             aria-label="Add To Cart"
             size="sm"
             className="w-full font-semibold"
-          ></Button>
+            variant={canBuy ? "outline" : "default"}
+          >
+            Add to Cart
+          </Button>
         </div>
       </form>
     </Form>

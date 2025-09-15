@@ -68,6 +68,7 @@ function ProductDetail() {
               rating={Number(product?.rating)}
             />
           </div>
+          <AddToCartForm canBuy={product?.status === "active"} />
           {/*  */}
         </div>
       </section>
