@@ -8,6 +8,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Autoplay from "embla-carousel-autoplay";
 import Rating from "@/pages/products/Rating";
 import AddToFav from "@/components/products/AddToFav";
+import AddToCartForm from "@/components/products/AddToCart";
 import {
   Carousel,
   CarouselContent,
@@ -67,6 +68,7 @@ function ProductDetail() {
               rating={Number(product?.rating)}
             />
           </div>
+          {/*  */}
         </div>
       </section>
       <Separator className="my-4 md:hidden" />
