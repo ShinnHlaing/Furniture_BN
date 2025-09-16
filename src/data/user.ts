@@ -1,9 +1,9 @@
 export const User = {
   id: "uuid1",
-  firstName: "Phone",
-  lastName: "Nyo",
+  firstName: "Ji",
+  lastName: "Hyung",
   username: "bonekyaw",
   email: "sample@gmail.com",
   imageUrl:
-    "https://in.bmscdn.com/iedb/artist/images/website/poster/large/sam-worthington-12089-24-03-2017-12-32-07.jpg",
+    "https://i.pinimg.com/236x/3e/34/b0/3e34b0444234b80130969f4cd3a597f0.jpg",
 };
