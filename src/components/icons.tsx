@@ -9,6 +9,9 @@ import {
   StarIcon,
   HeartIcon,
   MinusIcon,
+  DashboardIcon,
+  GearIcon,
+  ExitIcon,
 } from "@radix-ui/react-icons";
 export type IconProps = React.HTMLAttributes<SVGElement>; //for svg element
 export const Icons = {
@@ -39,6 +42,9 @@ export const Icons = {
   star: StarIcon,
   heart: HeartIcon,
   minus: MinusIcon,
+  dashboard: DashboardIcon,
+  gear: GearIcon,
+  exit: ExitIcon,
 };
 
 {

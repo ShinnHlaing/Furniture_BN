@@ -1,11 +1,11 @@
 export interface NavItem {
   title: string;
-  href: string;
+  href?: string;
   description?: string;
 }
 export interface NavItemWithChildren extends NavItem {
-  card: NavItemWithChildren[];
-  menu: NavItemWithChildren[];
+  card?: NavItemWithChildren[];
+  menu?: NavItemWithChildren[];
 }
 export type MainNavItem = NavItemWithChildren;
 
@@ -36,4 +36,13 @@ export type Post = {
 export type Category = {
   id: string;
   label: string;
+};
+
+export type User = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+  imageUrl: string;
 };

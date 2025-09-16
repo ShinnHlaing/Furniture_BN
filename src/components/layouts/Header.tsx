@@ -1,7 +1,9 @@
-import MainNav from "./MainNav";
-import MobileNav from "./MobileNav";
+import MainNav from "@/components/layouts/MainNav";
+import MobileNav from "@/components/layouts/MobileNav";
 import { siteConfig } from "@/config/site";
 import { ModeToggle } from "@/components/mode-toggle"; //shadcn vite dark mode
+import AuthDropDown from "@/components/layouts/AuthDropDown";
+import { User } from "@/data/user";
 function Header() {
   return (
     <header className="bg-background fixed z-50 w-full border-b">
@@ -10,6 +12,7 @@ function Header() {
         <MobileNav items={siteConfig.mainNav} />
         <div className="mr-4 flex flex-1 items-center justify-end space-x-4 lg:mr-0">
           <ModeToggle />
+          <AuthDropDown user={User} />
         </div>
       </div>
     </header>

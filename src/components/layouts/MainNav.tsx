@@ -65,7 +65,7 @@ export default function MainNav({ items }: MainNavProps) {
           {items?.[0]?.menu &&
             items[0].menu.map((item) => (
               <NavigationMenuItem key={item.href}>
-                <Link to={item.href}>
+                <Link to={String(item.href)}>
                   <NavigationMenuLink>{item.title}</NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
