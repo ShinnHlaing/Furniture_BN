@@ -4,6 +4,10 @@ import RootLayout from "@/pages/RootLayout";
 import Home from "@/pages/Home";
 import Erro from "@/pages/Erro";
 import About from "@/pages/About";
+// import Login from "@/pages/auth/Login";
+// import Register from "@/pages/auth/Register";
+const Login = lazy(() => import("@/pages/auth/Login"));
+const Register = lazy(() => import("@/pages/auth/Register"));
 // import BlogRootLayout from "@/pages/blogs/BlogRootLayout";
 // import Blog from "@/pages/blogs/Blog";
 // import BlogDetail from "@/pages/blogs/BlogDetail";
@@ -83,5 +87,21 @@ export const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  {
+    path: "/login",
+    Component: () => (
+      <Suspense fallback={<SuspenseFallback />}>
+        <Login />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/register",
+    Component: () => (
+      <Suspense fallback={<SuspenseFallback />}>
+        <Register />
+      </Suspense>
+    ),
   },
 ]);
