@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { Icons } from "@/components/icons";
 import BannerImg from "@/data/images/house.webp";
-
+import { LoginForm } from "@/components/auth/LoginForm";
 function Login() {
   return (
     <div className="relative">
@@ -11,11 +11,19 @@ function Login() {
           Furniture Shop
         </span>
       </Link>
-      <div className=""></div>
-      {/* banner image */}
-      <div className="">
-        <img src={BannerImg} alt="Bannger Image" className="" />
-      </div>
+      <main className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
+        <div className="flex w-full place-items-center">
+          <LoginForm />
+        </div>
+        {/* banner image */}
+        <div className="relative hidden size-full lg:block">
+          <img
+            src={BannerImg}
+            alt="Bannger Image"
+            className="absolute inset-0 object-cover"
+          />
+        </div>
+      </main>
     </div>
   );
 }
