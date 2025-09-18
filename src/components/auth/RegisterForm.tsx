@@ -9,13 +9,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router";
-export default function LoginForm() {
+export default function RegisterForm() {
   return (
     <Card className="mx-auto w-96 py-8">
       <CardHeader>
         <CardTitle>Login to your account</CardTitle>
         <CardDescription>
-          Enter your phone number below to login to your account
+          Enter your phone number below to create a new account
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -30,31 +30,25 @@ export default function LoginForm() {
                 required
               />
             </div>
-            <div className="grid gap-3">
-              <div className="flex items-center">
-                <Label htmlFor="password">Password</Label>
-                <a
-                  href="#"
-                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                >
-                  Forgot your password?
-                </a>
-              </div>
+            <div className="grid gap-2">
+              <Label htmlFor="password">Password</Label>
+              <Input id="password" type="password" required />
+              <Label htmlFor="confirm-password">Confirm Password</Label>
               <Input id="password" type="password" required />
             </div>
             <div className="flex flex-col gap-3">
               <Button type="submit" className="w-full" asChild>
-                <Link to="/">Login</Link>
+                <Link to="/">Sign Up</Link>
               </Button>
               <Button variant="outline" className="w-full">
-                Login with Google
+                Sign up with Google
               </Button>
             </div>
           </div>
           <div className="mt-4 text-center text-sm">
-            Don&apos;t have an account?{" "}
-            <Link to="/register" className="underline underline-offset-4">
-              Sign up
+            Already have an account?{" "}
+            <Link to="/login" className="underline underline-offset-4">
+              Login In
             </Link>
           </div>
         </form>
