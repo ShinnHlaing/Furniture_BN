@@ -7,7 +7,6 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
@@ -15,30 +14,44 @@ import {
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { cartItems } from "@/data/carts";
+import { Icons } from "@/components/icons";
 export default function CartSheet() {
+  const itemCount = 4;
+  const amountTotal = 190;
   return (
     <Sheet>
-      {/* <Badge variant="destructive">Badge</Badge> */}
       <SheetTrigger asChild>
-        <Button variant="outline">Open</Button>
+        <Button
+          variant="outline"
+          size="icon"
+          className="relative"
+          aria-label="open cart"
+        >
+          <Badge
+            variant="destructive"
+            className="absolute -top-2 -right-2 size-6 justify-center rounded-full p-2.5"
+          >
+            {itemCount}
+          </Badge>
+          <Icons.cart className="size-4" aria-hidden="true" />
+        </Button>
       </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
-          <SheetDescription>
-            Make changes to your profile here. Click save when you&apos;re done.
-          </SheetDescription>
+      <SheetContent className="w-full md:max-w-lg">
+        <SheetHeader className="mb-2">
+          <SheetTitle>Cart - {itemCount}</SheetTitle>
         </SheetHeader>
-        <div className="grid flex-1 auto-rows-min gap-6 px-4">
-          <div className="grid gap-3">
-            <Label htmlFor="sheet-demo-name">Name</Label>
-            <Input id="sheet-demo-name" defaultValue="Pedro Duarte" />
+        <Separator />
+        {cartItems.length > 0 ? (
+          <div className=""></div>
+        ) : (
+          <div className="flex h-full flex-col items-center justify-center space-y-1">
+            <Icons.cart className="text-muted-foreground mb-4 size-16" />
+            <div className="text-muted-foreground text-xl font-medium">
+              Your cart is empty!
+            </div>
           </div>
-          <div className="grid gap-3">
-            <Label htmlFor="sheet-demo-username">Username</Label>
-            <Input id="sheet-demo-username" defaultValue="@peduarte" />
-          </div>
-        </div>
+        )}
+        <Separator />
         <SheetFooter>
           <Button type="submit">Save changes</Button>
           <SheetClose asChild>
