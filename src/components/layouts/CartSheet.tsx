@@ -15,6 +15,7 @@ import { Separator } from "@/components/ui/separator";
 import { cartItems } from "@/data/carts";
 import { Icons } from "@/components/icons";
 import CartItems from "@/components/carts/CartItems";
+import { formatPrice } from "@/lib/utils";
 export default function CartSheet() {
   const itemCount = 4;
   const amountTotal = 190;
@@ -42,10 +43,33 @@ export default function CartSheet() {
         </SheetHeader>
         <Separator className="my-2" />
         {cartItems.length > 0 ? (
-          <ScrollArea className="my-4 h-[calc(100vh-16rem)] pb-8">
-            {cartItems.map((cart) => (
-              <CartItems key={cart.id} />
-            ))}
+          <>
+            <ScrollArea className="my-4 h-[80vh] px-4">
+              <div className="flex-1">
+                {cartItems.map((cart) => (
+                  <CartItems key={cart.id} />
+                ))}
+              </div>
+            </ScrollArea>
+            <div className="space-y-4 px-4">
+              <Separator />
+              <div className="space-y-1.5 text-sm">
+                <div className="flex justify-between">
+                  <span className="">Shipping</span>
+                  <span className="">Free</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="">Taxes</span>
+                  <span className="">Calculated at checkout</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="">Total</span>
+                  <span className="">
+                    {formatPrice(amountTotal.toFixed(2))}
+                  </span>
+                </div>
+              </div>
+            </div>
             <SheetFooter>
               <Button type="submit" asChild>
                 <Link to="/checkout" aria-label="checkout" className="">
@@ -56,7 +80,7 @@ export default function CartSheet() {
                 <Button variant="outline">Close</Button>
               </SheetClose>
             </SheetFooter>
-          </ScrollArea>
+          </>
         ) : (
           <div className="flex h-full flex-col items-center justify-center space-y-1">
             <Icons.cart className="text-muted-foreground mb-4 size-16" />
