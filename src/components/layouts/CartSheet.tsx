@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Link } from "react-router";
 import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Sheet,
   SheetClose,
@@ -15,6 +14,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { cartItems } from "@/data/carts";
 import { Icons } from "@/components/icons";
+import CartItems from "@/components/carts/CartItems";
 export default function CartSheet() {
   const itemCount = 4;
   const amountTotal = 190;
@@ -37,12 +37,26 @@ export default function CartSheet() {
         </Button>
       </SheetTrigger>
       <SheetContent className="w-full md:max-w-lg">
-        <SheetHeader className="mb-2">
+        <SheetHeader className="">
           <SheetTitle>Cart - {itemCount}</SheetTitle>
         </SheetHeader>
-        <Separator />
+        <Separator className="my-2" />
         {cartItems.length > 0 ? (
-          <div className=""></div>
+          <ScrollArea className="my-4 h-[calc(100vh-16rem)] pb-8">
+            {cartItems.map((cart) => (
+              <CartItems key={cart.id} />
+            ))}
+            <SheetFooter>
+              <Button type="submit" asChild>
+                <Link to="/checkout" aria-label="checkout" className="">
+                  Continue to checkout
+                </Link>
+              </Button>
+              <SheetClose asChild>
+                <Button variant="outline">Close</Button>
+              </SheetClose>
+            </SheetFooter>
+          </ScrollArea>
         ) : (
           <div className="flex h-full flex-col items-center justify-center space-y-1">
             <Icons.cart className="text-muted-foreground mb-4 size-16" />
@@ -52,12 +66,6 @@ export default function CartSheet() {
           </div>
         )}
         <Separator />
-        <SheetFooter>
-          <Button type="submit">Save changes</Button>
-          <SheetClose asChild>
-            <Button variant="outline">Close</Button>
-          </SheetClose>
-        </SheetFooter>
       </SheetContent>
     </Sheet>
   );

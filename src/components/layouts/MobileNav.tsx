@@ -58,7 +58,7 @@ export default function MobileNav({ items }: MainNavProps) {
               <AccordionItem value="item-1">
                 <AccordionTrigger>{items?.[0].title}</AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4 text-balance">
-                  {items?.[0].card.map((item) => (
+                  {items?.[0].card?.map((item) => (
                     <SheetClose asChild key={item.title}>
                       <Link
                         to={String(item.href)}
@@ -72,7 +72,7 @@ export default function MobileNav({ items }: MainNavProps) {
               </AccordionItem>
             </Accordion>
             <div className="flex flex-col space-y-2">
-              {items?.[0].menu.map((item) => (
+              {items?.[0].menu?.map((item) => (
                 <SheetClose asChild key={item.title}>
                   <Link to={String(item.href)} className="">
                     {item.title}
