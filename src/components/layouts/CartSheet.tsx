@@ -47,7 +47,7 @@ export default function CartSheet() {
             <ScrollArea className="my-4 h-[80vh] px-4">
               <div className="flex-1">
                 {cartItems.map((cart) => (
-                  <CartItems key={cart.id} />
+                  <CartItems cart={cart} key={cart.id} />
                 ))}
               </div>
             </ScrollArea>
